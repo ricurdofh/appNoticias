@@ -1,0 +1,63 @@
+
+<div id="wrapper_settings">    
+    <table width="100%" height="100%">
+        <tbody>
+            <tr width="33.3%" height="33.3%" id="Favorites">
+                <td class="verticalTop">
+        
+        <div class="setting">
+            <h2 class="tituloProfile">
+                <i class="fa fa-signal"></i> Acceso a internet
+            </h2>    
+            <div id="tipodeconexion" style="display: block;">
+                <select id="moneda" onchange="acciones.asignaConexion(this.value);" class="topcoat-text-input">
+                    <option value="wifi-datos" <% if (tipoconexion === 'wifi-datos') {
+                        %> selected="selected" <%
+                    } %> class="">Wifi - Mobile</option>
+                    <option value="wifi" <% if (tipoconexion === 'wifi') {
+                        %> selected="selected" <%
+                    } %> class="">Wifi Only</option>
+                </select>
+            </div>
+
+            <h2 class="tituloProfile">
+                <i class="fa fa-clock-o"></i> Actualización de noticias
+            </h2>
+            <div id="tiempos" style="display: block;" class="tiempos">
+                <label class="topcoat-radio-button">
+                    <input onclick="acciones.asignaTiempoDescarga(20000);" type="radio" name="topcoat" <% if (refreshRate === '20000') { %> checked="" <% } %> >
+                    <div class="topcoat-radio-button__checkmark"></div>20 Seg
+                </label>
+                <label class="topcoat-radio-button">
+                    <input onclick="acciones.asignaTiempoDescarga(100000);" type="radio" name="topcoat" <% if (refreshRate === '100000') { %> checked="" <% } %> >
+                    <div class="topcoat-radio-button__checkmark"></div>1 Min
+                </label>
+                <label class="topcoat-radio-button">
+                    <input onclick="acciones.asignaTiempoDescarga(200000);" type="radio" name="topcoat" <% if (refreshRate === '200000') { %> checked="" <% } %> >
+                    <div class="topcoat-radio-button__checkmark"></div>2 Min
+                </label>
+                <label class="topcoat-radio-button">
+                    <input onclick="acciones.asignaTiempoDescarga(500000);" type="radio" name="topcoat" <% if (refreshRate === '500000') { %> checked="" <% } %> >
+                    <div class="topcoat-radio-button__checkmark"></div>5 Min
+                </label>
+            </div>
+
+            <h2 class="tituloProfile">
+                <i class="fa fa-exclamation-triangle"></i> Notificaciones personales
+            </h2>
+            <div id="alertsActivation" style="display: block;">
+                <select id="alerts" onchange="acciones.cambiaAlertsStatus(this.value);" class="topcoat-text-input">
+                    <option value="activo" <% if (alertsStatus === 'activo') {
+                        %> selected="selected" <%
+                    } %> >Activo</option>
+                    <option value="inactivo" <% if (alertsStatus === 'inactivo') {
+                        %> selected="selected" <%
+                    } %> >Inactivo</option>
+                </select>
+            </div>
+        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

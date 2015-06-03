@@ -1,0 +1,24 @@
+<table width="100%" height="100%">
+    <tbody>
+        <tr width="33.3%" height="33.3%" id="Favorites">
+            <td class="verticalTop">
+                <div align="center" class="tituloProfile">Buscar noticias</div>
+                <div align="center" id="scroller" class="busqueda red">
+                    <input id="palabra" class="tema" placeholder="Introduzca palabra o frase para realizar busqueda de noticias">
+                </div>
+                <div align="center">
+                    Desde: 
+                    <input type="date" id="desde">
+                    Hasta: 
+                    <input type="date" id="hasta">
+                </div>
+                <div class="makePredictions center" colspan="3">
+                    <button onclick="acciones.buscarNoticias();" type="button" class="topcoat-button--cta">Buscar</button>
+                </div>
+                <div id="wrapperProfile" class="wrapperBuscar">
+                    <ul id="lista" class="list"></ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
