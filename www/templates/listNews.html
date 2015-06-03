@@ -1,0 +1,32 @@
+<li class="fondo_li visible">
+    <table class="table_li search_list">
+        <tbody>
+            <%if (typeof buscadas !== 'undefined') {%>
+            <tr onclick="window.location.href='#/detailBuscadas/<%=ID%>'">
+            <% } else if (ID !== '') { %>
+            <tr onclick="window.location.href='#/noticias/<%=ID%>'">
+            <% } else { %>
+            <tr onclick="window.location.href='#/personales/<%=id_noticia%>'">            
+            <% } %>            
+                <td colspan="6">
+                    <div class="liga list_liga"><%=post_title%></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="list_equipos">
+                    <div id="EquipoA" class="equipoa">
+                        <% if (urlImg) { %>
+                        <img src="<%=urlImg%>" class="bandera_equipos">
+                        <% } %>
+                        <%=contRes%>
+                        <% if (typeof palabras !== 'undefined') { %>
+                        <br />
+                        <hr>
+                        <div>(Favoritas: <%=palabras%>)</div>
+                        <% } %>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</li>    
