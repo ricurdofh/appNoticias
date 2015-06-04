@@ -34,9 +34,7 @@ var acciones = (function () {
                 self.data.palabra = tema;
                 localStorage.setItem('active', self.data.accion);
                 data = JSON.stringify(self.data);
-                // alert('data ' + data);
                 self.llamarAjax(self.urlPalabras, function (resp) {
-                    // alert('resp ' + resp);
                     if (resp === 'ok')
                         self.updateProfileList(tema);
                     else if (resp === 'rep')
@@ -201,7 +199,7 @@ var acciones = (function () {
 
         initNoticias : function () {
             var iconos = document.getElementById('iconos');
-            localStorage.setItem('active', 'noticias');
+            localStorage.setItem('active', 'noticias-prin');
             iconos.innerHTML = '<i class="fa fa-newspaper-o icono_info"></i> Noticias';
             loading('container', '');
             self.llamarAjax(self.urlJSON, self.showNoticias);
@@ -241,7 +239,7 @@ var acciones = (function () {
                     break;
                 case 'message':
                     if (!e.foreground) {
-                        self.showPersonales();
+                        window.location.href='#/personales/';
                     }
                     break;
             }
@@ -300,7 +298,9 @@ var acciones = (function () {
             var tmplt,
                 container = document.getElementById('container'),
                 refreshRate = localStorage.getItem('refreshRate') || 100000;
-            localStorage.setItem('active', 'noticias');
+            localStorage.setItem('active', 'noticias-prin');
+            removeClass('is-active');
+            addClass(document.getElementById('noticias') ,'is-active');
             self.clearTimer();
             try {
                 noticias = JSON.parse(noticias);
@@ -314,8 +314,6 @@ var acciones = (function () {
                     noticia = self.procesaNoticia(noticia);
                     self.noticias.push(noticia);
                 });
-                removeClass('is-active');
-                addClass(document.getElementById('noticias') ,'is-active');
                 Search("searchbox", "lista", "search_list", function (element) {
                   element.innerHTML += ' - enter';
                 });
@@ -354,6 +352,8 @@ var acciones = (function () {
             iconos.innerHTML = '<i class="fa fa-bell icono_info"></i> Personales';
             self.data.accion = 'noticias';
             localStorage.setItem('active', self.data.accion);
+            removeClass('is-active');
+            addClass(document.getElementById('personales') ,'is-active');
             data = JSON.stringify(self.data);
             self.clearTimer();
             self.llamarAjax(self.urlPalabras, function (resp) {
@@ -372,8 +372,6 @@ var acciones = (function () {
                         var noticiasPersonales = self.procesaNoticia(noticia);
                         self.noticiasPersonales.push(noticiasPersonales);
                     });
-                    removeClass('is-active');
-                    addClass(document.getElementById('personales') ,'is-active');
                     Search("searchbox", "lista", "search_list", function (element) {
                       element.innerHTML += ' - enter';
                     });
