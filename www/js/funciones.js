@@ -14,7 +14,8 @@ var getAjax = function (url, callback, params) {
             active = localStorage.getItem('active');
             if (params) {
                 data = JSON.parse(params);
-                if (data.accion === active && url !== acciones.urlJSON) {
+                if ((data.accion === active && url !== acciones.urlJSON) || 
+                    (data.accion === 'cambiaStatus')) {
                     callback(jsonResp);
                 }
                 
